@@ -41,14 +41,12 @@
     <script type="text/javascript">
       // Example queryURL for Giphy API
 
-      var searchTerm
-
       // Initial Categories
       var topics = ["cats", "dogs", "mice", "lion", "elephant", "giraffe"];
 
       function displayGiphy() {
         var topic = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=GnHiFNZ349iRdM6Gcu92q0998zNYR6R6&q=" + searchTerm +
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=GnHiFNZ349iRdM6Gcu92q0998zNYR6R6&q=" + topic +
           "&limit=10";
 
         $.ajax({
@@ -59,24 +57,41 @@
           // $("<img>").attr('src', response.data[0].images.original.url).appendTo("body");
 
           var giphyDiv = $("<div class='giphy'>");
+          var rating = response.rating;
+          var pOne = $("<p>").text("Rating: " + rating);
+
+          giphyDiv.append(pOne);
+
+          var stillImage = response.images.original_still;
+          var animatedImage = response.images.bitly_gif_url;
+
+          giphyDiv.append(stillImage);
         });
+      }
+
+      function renderButtons() {
+        $("buttons-view").empty();
+        for (var i = 0; i < topics.length; i++) {
+          var a = $("<button>");
+          a.addClass("giphyButton");
+          a.attr("data-name", topics[i]);
+          a.text(topics[i]);
+          $("#buttons-view").append(a);
         }
 
-        function renderButtons() {
-          $("buttons-view").empty();
-          for (var i=0; i < topics.length; i++) {
-            var a = $("<button>");
-            a.addClass("giphyButton");
-            a.attr("data-name", topics[i]);
-            a.text(topics[i]);
-            $("#buttons-view").append(a);
-          }
+      }
 
-        }
+      $("#add-giphy").on("click", function () {
+        event.preventDefault();
+        var topic = $("#giphy-input").val().trim();
+        topics.push(topic);
+        renderButtons();
+      });
 
-
-      
+      $(document).on("click", ".giphy-btn", displayGiphy);
+      renderButtons();
     </script>
+
 </body>
 
 </html>
