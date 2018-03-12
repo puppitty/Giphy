@@ -23,92 +23,22 @@
     <!-- Movies will Get Dumped Dere -->
     <div id="buttons-view"></div>
 
-
-
     <!-- Rendered Buttons will get Dumped Here  -->
 
-
     <form id="giphy-form">
-      <label for="giphy-input">Add a Giphy Search Category</label>
+      <label for="giphy-input">Add an Animal</label>
       <input type="text" id="giphy-input">
       <br>
 
       <!-- Button triggers new movie to be added -->
-      <input id="add-giphy" type="submit" value="Add a Giphy Search Category">
+      <input id="add-giphy" type="submit" value="Submit">
     </form>
 
     <div id="giphys-view"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
+    <script src="./assets/js/app.js"></script>
       // Example queryURL for Giphy API
-
-      // Initial Categories
-      var topics = ["cats", "dogs", "mice", "lion", "elephant", "giraffe"];
-
-
-
-      function displayGiphy() {
-
-        $("#giphys-view").empty();
-        var topic = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=GnHiFNZ349iRdM6Gcu92q0998zNYR6R6&q=" + topic +
-          "&limit=10";
-
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function (response) {
-          console.log(response);
-          var giphyDiv = $("<div class='topic'>");
-          for (var x = 0; x < response.data.length; x++) {
-            var rating = response.data[x].rating;
-            var ratingText = $("<p>").text("Rating: " + rating);
-
-            giphyDiv.append(ratingText);
-            $("#giphy-view").append(giphyDiv);
-
-            $("<img>").attr('src', response.data[x].images.fixed_height_still.url).prependTo("#giphys-view");
-
-
-
-          }
-          // var stillUrl = response.data[0].images.fixed_height_still;
-          // var animatedUrl = response.data[0].images.bitly_gif_url;
-          // var stillImg = $("<img>").attr("src", stillUrl);
-          // $("<img>").attr('src', response.data[0].images.original.url).appendTo("body");
-
-          // giphyDiv.append(stillImg);
-          // $("#giphy-view").append(giphyDiv);
-        });
-      }
-
-      function renderButtons() {
-        $("#buttons-view").empty();
-
-        for (var i = 0; i < topics.length; i++) {
-          var a = $("<button>");
-          a.addClass("giphy-btn");
-          a.attr("data-name", topics[i]);
-          a.text(topics[i]);
-          $("#buttons-view").append(a);
-        }
-      }
-
-      $("#add-giphy").on("click", function (event) {
-        event.preventDefault();
-        if ($("#giphy-input").val() !== '') {
-          var topic = $("#giphy-input").val().trim();
-          $("#giphy-input").val(" ");
-          topics.push(topic);
-          console.log(topics);
-          renderButtons();
-        }
-      });
-
-      $(document).on("click", ".giphy-btn", displayGiphy);
-      renderButtons();
-    </script>
 
 </body>
 
