@@ -23,7 +23,7 @@
     <!-- Movies will Get Dumped Dere -->
     <div id="buttons-view"></div>
 
-    <div id="giphys-view"></div>
+  
 
     <!-- Rendered Buttons will get Dumped Here  -->
 
@@ -36,6 +36,8 @@
       <!-- Button triggers new movie to be added -->
       <input id="add-giphy" type="submit" value="Add a Giphy Search Category">
     </form>
+
+    <div id="giphys-view"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -56,14 +58,16 @@
           method: "GET"
         }).then(function (response) {
           console.log(response);
-          $("<img>").attr('src', response.data[0].images.fixed_height_still.url).appendTo("body");
+          for (var x=0; x<10; x++) {
+          $("<img>").attr('src', response.data[x].images.fixed_height_still.url).appendTo("#giphys-view");
 
-          var giphyDiv = $("<div class='giphy'>");
-          var rating = response.data[0].rating;
-          var pOne = $("<p>").text("Rating: " + rating);
-
-          giphyDiv.append(pOne);
-
+          var giphyDiv = $("<div class='topic'>");
+          var rating = response.data[x].rating;
+          var ratingText = $("<p>").text("Rating: " + rating);
+          
+          giphyDiv.append(ratingText);
+          $("giphy-view").prepend(giphyDiv);
+          }
           // var stillUrl = response.data[0].images.fixed_height_still;
           // var animatedUrl = response.data[0].images.bitly_gif_url;
           // var stillImg = $("<img>").attr("src", stillUrl);
