@@ -44,6 +44,8 @@
       // Initial Categories
       var topics = ["cats", "dogs", "mice", "lion", "elephant", "giraffe"];
 
+
+
       function displayGiphy() {
         var topic = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=GnHiFNZ349iRdM6Gcu92q0998zNYR6R6&q=" + topic +
@@ -73,7 +75,9 @@
       }
 
       function renderButtons() {
-        $("buttons-view").empty();
+        $("#buttons-view").empty();
+      
+        
         for (var i = 0; i < topics.length; i++) {
           var a = $("<button>");
           a.addClass("giphy-btn");
@@ -84,11 +88,15 @@
 
       }
 
-      $("#add-giphy").on("click", function () {
+      $("#add-giphy").on("click", function (event) {
         event.preventDefault();
-        var topic = $("#giphy-input").val().trim();
-        topics.push(topic);
-        renderButtons();
+        if ($("#giphy-input").val() !== '') {
+          var topic = $("#giphy-input").val().trim();
+          $("#giphy-input").val(" ");
+          topics.push(topic);
+          console.log(topics);
+          renderButtons();
+        }
       });
 
       $(document).on("click", ".giphy-btn", displayGiphy);
