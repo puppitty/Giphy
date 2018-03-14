@@ -30,11 +30,12 @@ $(document).ready(function () {
             var pOne = $("<p>").text("Rating: " + rating.toUpperCase());
             //  console.log(rating);
             var displayImage = $("<img>");
-            displayImage.addClass("giphyimage");
+            displayImage.addClass("gif");
             displayImage.attr("img-animated", "false");
             displayImage.attr("data-still-url", results[x].images.fixed_height_still.url);
             displayImage.attr("data-animate-url", results[x].images.fixed_height.url);
             displayImage.attr("src", results[x].images.fixed_height_still.url)
+            console.log(displayImage);
 
             giphyDiv.append(pOne);
             giphyDiv.append(displayImage);
@@ -46,7 +47,7 @@ $(document).ready(function () {
     }
   //grab images
 
-  $("#giphys-view").on("click", "giphyimage", function () {
+  $("#giphys-view").on("click", "gif", function () {
     var state = $(this).attr("img-animated");
     var stillUrl = $(this).attr("data-still-url");
     var animatedUrl = $(this).attr("data-animate-url");
