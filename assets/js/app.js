@@ -32,26 +32,25 @@ $(document).ready(function () {
           //grab rating Seems to be pointing to my computer maybe this is why I can't get giphyDiv to work?
           var rating = results[x].rating;
           var pOne = $("<p>").text("Rating: " + rating.toUpperCase());
-          
-          var displayImage = $("<img>");
 
+          //setup image urls with animated and still gifs
+          var displayImage = $("<img>");
           displayImage.addClass("gif");
           displayImage.attr("img-animated", "false");
           displayImage.attr("data-still-url", results[x].images.fixed_height_still.url);
           displayImage.attr("data-animate-url", results[x].images.fixed_height.url);
           displayImage.attr("src", results[x].images.fixed_height_still.url)
 
-
+          // Push to the screen
           giphyDiv.append(pOne);
           giphyDiv.append(displayImage);
-          // console.log(displayImage);
 
           $("#giphys-view").append(giphyDiv);
         }
       }
     });
   }
-  //grab images
+  // Animated or still??
 
   $("#giphys-view").on("click", ".gif", function () {
     var state = $(this).attr("img-animated");
@@ -67,6 +66,7 @@ $(document).ready(function () {
     }
   });
 
+  // Create buttons
   function renderButtons() {
     $("#buttons-view").empty();
     for (var x = 0; x < topics.length; x++) {
@@ -78,7 +78,7 @@ $(document).ready(function () {
     }
     $("#giphys-view").empty();
   };
-  // Add buttons
+  // Add new buttons
   $("#add-giphy").on("click", function (event) {
     event.preventDefault();
     if ($("#giphy-input").val() !== '') {
@@ -89,11 +89,15 @@ $(document).ready(function () {
       renderButtons();
     }
   });
+  // Check click on image for still / animated toggle
   $("#buttons-view").on("click", "giphy-btn", function () {
       var topic = $(this).attr("data-name");
       displayGiphy(topic);
     }),
 
+    // listen for button click
     $(document).on("click", ".giphy-btn", displayGiphy);
+
+  // run button function
   renderButtons();
 });
