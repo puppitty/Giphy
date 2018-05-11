@@ -1,3 +1,16 @@
 #giphys-view {
-display: inline-block
+  float: left;
+  margin: 3px;
+  padding: 0px;
+}
+
+.topic {
+  float: left;
+}
+
+button,
+div,
+form,
+input {
+  margin: 10px;
 }
