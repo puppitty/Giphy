@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // Initial Topics
-  var topics = ["cat", "dog", "mice", "lion", "elephant", "giraffe"];
+  var topics = ["Cat", "Dog", "Mice", "Lion", "Elephant", "Giraffe"];
 
   //clear display
   function initDisplay() {
@@ -71,7 +71,7 @@ $(document).ready(function () {
     $("#buttons-view").empty();
     for (var x = 0; x < topics.length; x++) {
       var gifBtn = $("<button>");
-      gifBtn.addClass("giphy-btn");
+      gifBtn.addClass("giphy-btn").addClass('btn-info');
       gifBtn.attr("data-name", topics[x]);
       gifBtn.text(topics[x]);
       $("#buttons-view").append(gifBtn);

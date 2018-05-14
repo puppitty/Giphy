@@ -1,11 +1,28 @@
 #giphys-view {
   float: left;
-  margin: 3px;
-  padding: 0px;
 }
+
+/* .giphy-btn {
+  background-color: #85c5d1;
+} */
 
 .topic {
   float: left;
+  background-color: rgb(179, 205, 240);
+  /* background-color: #0ab4c8; */
+  /* background-color: #85c5d1; */
+  /* color: white; */
+  font-weight: bold;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  line-height: 1;
+}
+
+body,
+html {
+  height: 100%;
 }
 
 button,
@@ -13,4 +30,13 @@ div,
 form,
 input {
   margin: 10px;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../images/scott-webb-272211-unsplash.jpg");
+  background-size: cover;
+  /* Full height */
+  height: 100%;
+  background-repeat: repeat;
 }
