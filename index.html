@@ -17,7 +17,7 @@
       <!-- <div class="container"> -->
       <div class="row align-items-center justify-content-center" style="height:15vh">
         <div class="col-12 col-sm-10 col-md-8 text-center">
-          <h1>Giphy Search</h1>
+          <h1>GIF Image Search</h1>
         </div>
       </div>
     </div>
@@ -31,24 +31,52 @@
 
       <form id="giphy-form">
         <label for="giphy-input">
-          <h4>Add an Animal</h4>
+          <h4>Add a Topic</h4>
         </label>
         <input type="text" id="giphy-input">
         <br>
 
+
         <!-- Button triggers new movie to be added -->
-        <input id="add-giphy" class="btn-info" type="submit" value="Submit" .bg-info>
+        <input id="add-giphy" class="btn-info" type="submit" value="Submit" .bg-primary>
+
+        <p>Click an image to see the animation. Click it again to go back to a still image.</p>
       </form>
 
       <!-- Movies will Get Dumped Dere -->
       <div id="giphys-view"></div>
     </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+    <div class="clearfix"></div>
+
+    <footer>
+
+      <div class="card-body">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item px-5"> &copy;2018 Joyce Santos</li>
+          <li class="list-inline-item px 4">
+            <a href="https://github.com/puppitty" target="_blank">
+              <img src="./assets/images/if_Github_2613277.svg" width="40" height="40" class="social image-fluid" alt="Github">
+            </a>
+          </li>
+          <li class="list-inline-item px-4 mx-0">
+            <a href="https://www.linkedin.com/in/joyce-santos-363b084/" target="_blank">
+              <img src="./assets/images/if_LinkedIn_2613305.svg" width="40" height="40" class="social image-fluid" alt="LinkedIn">
+            </a>
+          </li>
+          <li class="list-inline-item px-2">
+            <a href="https://stackoverflow.com/users/9157213/joyce-santos" target="_blank">
+              <img src="./assets/images/if_StackOverflow_2613280.svg" width="40" height="40" class="social image-fluid" alt="Stack Overflow">
+            </a>
+          </li>
+        </ul>
+    </footer>
+
   </section>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./assets/js/app.js"></script>
-
-
 </body>
 
 </html>

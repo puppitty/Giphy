@@ -16,7 +16,8 @@
   text-align: center;
   padding-top: 12px;
   padding-bottom: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
+  margin-right: 10px;
   line-height: 1;
 }
 
@@ -26,7 +27,9 @@ html {
 }
 
 button,
-div,
+/* div, */
+
+#giphy-btn,
 form,
 input {
   margin: 10px;
@@ -40,4 +43,40 @@ input {
   height: 100%;
   overflow: auto;
   background-repeat: repeat;
+}
+
+.clearfix {
+  display: block;
+  clear: both;
+  margin-bottom: 130px;
+}
+
+footer {
+  /* background: rgb(63, 150, 190); */
+  border-top: 5px solid rgb(0, 60, 128);
+  background: rgb(179, 205, 240);
+  color: black;
+  text-align: center;
+  /* padding: 10px;
+  margin-top: 10px; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.ul {
+  /* padding-top: 5px; */
+  padding-left: 30px;
+  padding-right: 30px;
+  /* padding-bottom: 5px; */
+}
+
+.card-body {
+  padding: 0px;
+  padding-top: 10px;
+  /* padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+} */
 }
