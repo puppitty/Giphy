@@ -38,5 +38,6 @@ input {
   background-size: cover;
   /* Full height */
   height: 100%;
+  overflow: auto;
   background-repeat: repeat;
 }
